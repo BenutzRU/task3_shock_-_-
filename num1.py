@@ -3,35 +3,32 @@
 #   Обработайте ошибку деления на 0 и реализуйте проверку на входные данные.
 
 
-class ValidationError(Exception):
-    pass
-
 class Calc:
     def add(self, x, y):
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
-            raise ValidationError("Error. Enter nums.")
+            raise TypeError("Error. Enter nums.")
         return x + y
 
     def minus(self, x, y):
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
-            raise ValidationError("Error. Enter nums.")
+            raise TypeError("Error. Enter nums.")
         return x - y
 
     def multiply(self, x, y):
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
-            raise ValidationError("Error. Enter nums.")
+            raise TypeError("Error. Enter nums.")
         return x * y
 
     def divide(self, x, y):
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
-            raise ValidationError("Error. Enter nums.")
+            raise TypeError("Error. Enter nums.")
         if y == 0:
             raise ZeroDivisionError("Деление на ноль невозможно.")
         return x / y
 
     def exponent(self, x, y):
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
-            raise ValidationError("Error. Enter nums.")
+            raise TypeError("Error. Enter nums.")
         return x ** y
 
 
@@ -81,7 +78,7 @@ def main():
             elif choice == '5':
                 result = calculator.exponent(num1, num2)
             print(result)
-        except (ValidationError, ZeroDivisionError, ValueError) as e:
+        except (TypeError, ZeroDivisionError, ValueError) as e:
             print("Error:", e)
 
 
